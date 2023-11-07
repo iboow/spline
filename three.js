@@ -1,6 +1,3 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import SplineLoader from '@splinetool/loader';
 
 // Fonction pour créer et ajouter une scène à une div donnée
 function createAndAddSceneToDiv(divId, splineCodeUrl) {
@@ -24,11 +21,6 @@ function createAndAddSceneToDiv(divId, splineCodeUrl) {
   loader.load(splineCodeUrl, (splineScene) => {
     scene.add(splineScene);
   });
-
-  // Orbit controls pour cette caméra
-  const controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.125;
 
   // Redimensionnement de la scène lorsque la fenêtre est redimensionnée
   window.addEventListener('resize', () => {
